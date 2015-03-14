@@ -408,6 +408,7 @@
 				D844BA541AB4CA7500888CDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D844BA551AB4CA7500888CDB /* Build configuration list for PBXNativeTarget "EqualityTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +417,7 @@
 				D844BA571AB4CA7500888CDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

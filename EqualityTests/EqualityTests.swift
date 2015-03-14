@@ -27,11 +27,12 @@ final class EqualityTests: XCTestCase {
     }
 
     func testInequality() {
-        XCTAssertFalse([] == TestSequence(1))
-        XCTAssertFalse(EmptySequence() == TestSequence("Hello", "World"))
-        XCTAssertFalse(TestSequence(1, 2, 3) == TestSequence(1, 2, 4))
-        XCTAssertFalse(TestSequence(0, 1, 2) == TestSequence(1, 1, 2))
-        XCTAssertFalse(TestSequence(1, 2, 3) == TestSequence(1, 3, 3))
+        XCTAssert([] != TestSequence(1))
+        XCTAssert(EmptySequence() != TestSequence("Hello", "World"))
+        XCTAssert(TestSequence(1, 2, 3) != TestSequence(1, 2, 4))
+        XCTAssert(TestSequence(0, 1, 2) != TestSequence(1, 1, 2))
+        XCTAssert(TestSequence(1, 2, 3) != TestSequence(1, 3, 3))
+        XCTAssert(TestSequence(Box("asdf")) != TestSequence(Box("fdsa")))
     }
 }
 

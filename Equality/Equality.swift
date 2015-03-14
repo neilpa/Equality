@@ -1,6 +1,6 @@
 //  Copyright (c) 2015 Neil Pankey. All rights reserved.
 
-/// Defines equality operator for arbitrary sequences of equatable elements
+/// Defines an equality operator for arbitrary sequences of equatable elements
 ///
 /// In practice this is most useful in tests for asserting equality of custom sequences against some reference collection (e.g. an array).
 ///
@@ -18,4 +18,9 @@ public func == <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Genera
     }
 
     return elem0 == nil && elem1 == nil;
+}
+
+/// Defines an inequality operator for arbitrary sequences of equatable elements
+public func != <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Generator.Element == E, S1.Generator.Element == E> (seq0: S0, seq1: S1) -> Bool {
+    return !(seq0 == seq1)
 }

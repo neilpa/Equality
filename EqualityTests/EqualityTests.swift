@@ -25,6 +25,14 @@ final class EqualityTests: XCTestCase {
         XCTAssert(TestSequence(Box(1)) == [Box(1)])
         XCTAssert([Box(1)] == TestSequence(Box(1)))
     }
+
+    func testInequality() {
+        XCTAssertFalse([] == TestSequence(1))
+        XCTAssertFalse(EmptySequence() == TestSequence("Hello", "World"))
+        XCTAssertFalse(TestSequence(1, 2, 3) == TestSequence(1, 2, 4))
+        XCTAssertFalse(TestSequence(0, 1, 2) == TestSequence(1, 1, 2))
+        XCTAssertFalse(TestSequence(1, 2, 3) == TestSequence(1, 3, 3))
+    }
 }
 
 // MARK: Fixtures

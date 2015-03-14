@@ -1,6 +1,6 @@
 //  Copyright (c) 2015 Neil Pankey. All rights reserved.
 
-/// Defines equality operator for arbitrary sequences of related, equatable elements
+/// Defines equality operator for arbitrary sequences of equatable elements
 ///
 /// In practice this is most useful in tests for asserting equality of custom sequences against some reference collection (e.g. an array).
 ///

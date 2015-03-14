@@ -1,5 +1,10 @@
 //  Copyright (c) 2015 Neil Pankey. All rights reserved.
 
+/// Defines equality operator for arbitrary sequences of related, equatable elements
+///
+/// In practice this is most useful in tests for asserting equality of custom sequences against some reference collection (e.g. an array).
+///
+///     assert(MyCustomCollection(1, 2, 3) == [1, 2, 3])
 public func == <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Generator.Element == E, S1.Generator.Element == E> (seq0: S0, seq1: S1) -> Bool {
     var gen0 = seq0.generate()
     var gen1 = seq1.generate()

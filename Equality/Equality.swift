@@ -33,7 +33,7 @@ public func equal<S0: SequenceType, S1: SequenceType>(@noescape compare: (S0.Gen
 /// In practice this is most useful in tests for asserting equality of custom sequences against some reference collection:
 ///
 ///     assert(CustomCollection(1, 2, 3) == [1, 2, 3])
-public func == <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Generator.Element == E, S1.Generator.Element == E> (lhs: S0, rhs: S1) -> Bool {
+public func == <S0: SequenceType, S1: SequenceType where S0.Generator.Element == S1.Generator.Element, S0.Generator.Element: Equatable> (lhs: S0, rhs: S1) -> Bool {
     return Equality.equal(lhs, rhs) { $0 == $1 }
 }
 
@@ -42,6 +42,6 @@ public func == <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Genera
 /// In practice this is most useful in tests for asserting inequality of custom sequences against some reference collection:
 ///
 ///     assert(CustomCollection(1, 2, 3) != [1, 2, 3])
-public func != <S0: SequenceType, S1: SequenceType, E: Equatable where S0.Generator.Element == E, S1.Generator.Element == E> (lhs: S0, rhs: S1) -> Bool {
+public func != <S0: SequenceType, S1: SequenceType where S0.Generator.Element == S1.Generator.Element, S0.Generator.Element: Equatable> (lhs: S0, rhs: S1) -> Bool {
     return !(lhs == rhs)
 }

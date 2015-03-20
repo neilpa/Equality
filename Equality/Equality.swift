@@ -19,6 +19,15 @@ public func equal<S0: SequenceType, S1: SequenceType>(lhs: S0, rhs: S1, compare:
     return leftElement == nil && rightElement == nil;
 }
 
+/// An equality function over two sequence. Returns true iff both contain the same number of values in the same order.
+///
+/// Unlike the Swift stdlib version of `equal` this doesn't require elements of both sequences to be the same.
+///
+/// This overload supports currying the comparator for easier creation of binary equality functions.
+public func equal<S0: SequenceType, S1: SequenceType>(compare: (S0.Generator.Element, S1.Generator.Element) -> Bool)(_ lhs: S0, _ rhs: S1) -> Bool {
+    return Equality.equal(lhs, rhs, compare)
+}
+
 /// Defines an equality operator for arbitrary sequences of equatable elements.
 ///
 /// In practice this is most useful in tests for asserting equality of custom sequences against some reference collection:
